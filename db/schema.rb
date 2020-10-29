@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_10_29_031358) do
   create_table "measures", force: :cascade do |t|
     t.text "body"
     t.string "hash"
+    t.string "heading"
     t.string "key"
     t.string "name"
     t.string "label"

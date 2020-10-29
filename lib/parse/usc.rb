@@ -42,17 +42,17 @@ module Parse
                 xml.traverse do |x|
                     if ([x.name] + x.ancestors.map(&:name)).all? {|n| (HEADINGS + LEVELS).include? n }
                         body = x.search("content")[0].text rescue x.text
-                        hash = Digest::SHA2.hexdigest(body)
+                        checksum = Digest::SHA2.hexdigest(body)
                         Measure.create!(
                             name: x.name,
                             key: x.attr("identifier"),
-                            hash: hash,
+                            checksum: checksum,
                             body: body,
                             label: (x.search("num")[0].attr("value") rescue nil),
                             heading: (x.search("heading")[0].text rescue nil),
                         )
                         unless HEADINGS.include? x.name
-                            x.replace("{measure '#{hash}'}")
+                            x.replace("{measure '#{checksum}'}")
                         end
                     end
                 end

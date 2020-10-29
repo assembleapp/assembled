@@ -16,17 +16,17 @@ ActiveRecord::Schema.define(version: 2020_10_29_031358) do
   enable_extension "plpgsql"
 
   create_table "measures", force: :cascade do |t|
-    t.text "body"
-    t.string "hash"
+    t.string "codebase"
+    t.string "checksum"
     t.string "heading"
+    t.text "body"
     t.string "key"
     t.string "name"
     t.string "label"
-    t.string "codebase"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["checksum"], name: "index_measures_on_checksum"
     t.index ["codebase"], name: "index_measures_on_codebase"
-    t.index ["hash"], name: "index_measures_on_hash"
     t.index ["key"], name: "index_measures_on_key"
   end
 

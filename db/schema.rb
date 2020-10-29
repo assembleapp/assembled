@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_10_110211) do
+ActiveRecord::Schema.define(version: 2020_10_29_031358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "measures", force: :cascade do |t|
+    t.text "body"
+    t.string "hash"
+    t.string "key"
+    t.string "name"
+    t.string "label"
+    t.string "codebase"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["codebase"], name: "index_measures_on_codebase"
+    t.index ["hash"], name: "index_measures_on_hash"
+    t.index ["key"], name: "index_measures_on_key"
+  end
 
   create_table "page_loads", force: :cascade do |t|
     t.datetime "as"

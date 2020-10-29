@@ -1,28 +1,23 @@
 # Assembled
 
-## Getting Started
+A small program is included so you can add our dependencies on your machine.
 
-After you have cloned this repo, run this setup script to set up your machine
-with the necessary dependencies to run and test this app:
+    $ ./bin/prepare
 
-    % ./bin/setup
+Once your dependencies are prepared, you can run using:
 
-It assumes you have a machine equipped with Ruby, Postgres, etc. If not, set up
-your machine with [this script].
+    $ rails s
+    $ ./bin/webpack-dev-server
 
-[this script]: https://github.com/thoughtbot/laptop
+## Deploying
 
-After setting up, you can run the application using [Heroku Local]:
-
-    % heroku local
-
-[Heroku Local]: https://devcenter.heroku.com/articles/heroku-local
+- ~ - Coming soon - ~ -
 
 ## Guidelines
 
-Use the following guides for getting things done, programming well, and
-programming in style.
-
-* [Protocol](http://github.com/thoughtbot/guides/blob/master/protocol)
-* [Best Practices](http://github.com/thoughtbot/guides/blob/master/best-practices)
-* [Style](http://github.com/thoughtbot/guides/blob/master/style)
+* Use public code bases
+* Pull symbolic conclusions based on:
+  - roles
+  - agencies
+  - regions
+* Good hope, and good luck.

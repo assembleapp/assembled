@@ -14,7 +14,7 @@ bundle check || bundle install
 bin/yarn
 
 # Set up database and add any development seed data
-bin/rails dev:prime
+bin/rails db:create db:migrate db:seed
 
 if [ ! -d .git/safe ] && echo $PATH | grep .git/safe > /dev/null; then
   echo "-----------------------------------------------------------------------"

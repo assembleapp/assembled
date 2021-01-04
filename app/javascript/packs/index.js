@@ -1,26 +1,53 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
+import { autorun, observable } from "mobx"
+import { Observer, observer } from "mobx-react"
+import styled from "styled-components"
 
-fetch("/graphics?key=/us/usc/t5/s8953")
+const measures = observable([])
+const code = observable.box("/us/usc/t5/s8953")
+
+fetch(`/graphics?key=${code}`)
 .then(response => response.json())
-.then(response => console.log(response))
+.then(response => measures.replace(response))
 
-const Hello = props => (
-  <div>Hello {props.name}!</div>
+autorun(
+  () => console.log(measures.length)
 )
 
-Hello.defaultProps = {
-  name: 'David'
-}
+const Code = observer(({ code, measures }) => (
+  <Box>
+    <h2>{code}</h2>
 
-Hello.propTypes = {
-  name: PropTypes.string
-}
+    {measures.length}
+    {/* {JSON.stringify(measures, null, 2)} */}
+    {renderMeasure(measures.filter(m => m.key === code)[0] || {})}
+  </Box>
+))
+
+const bluish = "#aea0da"
+const paleblue = "#ae80ea"
+
+const Box = styled.div`
+background: ${bluish};
+color: ${paleblue};
+height: 80vh;
+width: 40vw;
+`
+
+const renderMeasure = (m) => (
+  <P>
+    {m.body}
+  </P>
+)
+
+const P = styled.p`
+padding: 0.2rem;
+`
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Hello name="React" />,
+    <Code code={code.get()} measures={measures} />,
     document.body.appendChild(document.createElement('div')),
   )
 })

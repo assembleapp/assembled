@@ -22,6 +22,6 @@ class GraphicsController < ApplicationController
         query = Measure
         query = query.where("key ilike ?", key + "%") if key
 
-        render json: query.select(:key, "LENGTH(measures.body)")
+        render json: query.select(:key, :body, "LENGTH(measures.body)")
     end
 end

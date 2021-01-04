@@ -25,8 +25,8 @@ const Code = observer(({ code, measures }) => (
   </Box>
 ))
 
-const bluish = "#aea0da"
-const paleblue = "#ae80ea"
+const bluish = "#0a2e7d"
+const paleblue = "#7cb1f3"
 
 const Box = styled.div`
 background: ${bluish};

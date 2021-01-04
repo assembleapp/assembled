@@ -5,7 +5,7 @@ import { Observer, observer } from "mobx-react"
 import styled from "styled-components"
 
 const measures = observable([])
-const code = observable.box("/us/usc/t5/s8953")
+const code = observable.box("/us/usc/t26/s122")
 
 fetch(`/graphics?key=${code}`)
 .then(response => response.json())

@@ -2,6 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
+fetch("/graphics")
+.then(response => response.json())
+.then(response => console.log(response))
+
 const Hello = props => (
   <div>Hello {props.name}!</div>
 )

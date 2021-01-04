@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
-fetch("/graphics")
+fetch("/graphics?key=/us/usc/t5/s8953")
 .then(response => response.json())
 .then(response => console.log(response))
 

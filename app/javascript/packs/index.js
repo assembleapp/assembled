@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { autorun, observable } from "mobx"
-import { Observer, observer } from "mobx-react"
+import { observer } from "mobx-react"
 import styled from "styled-components"
 
 const measures = observable([])

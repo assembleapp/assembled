@@ -30,23 +30,4 @@ ActiveRecord::Schema.define(version: 2020_10_29_031358) do
     t.index ["key"], name: "index_measures_on_key"
   end
 
-  create_table "page_loads", force: :cascade do |t|
-    t.datetime "as"
-    t.string "address"
-    t.jsonb "grades"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "regions", force: :cascade do |t|
-    t.string "page_code"
-    t.integer "x0"
-    t.integer "y0"
-    t.integer "x1"
-    t.integer "y1"
-    t.string "label"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
 end
